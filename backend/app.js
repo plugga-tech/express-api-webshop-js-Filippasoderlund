@@ -2,11 +2,29 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const cors = require('cors');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+let productsRouter = require('./routes/products');
+let apiRouter = require('./routes/api');
 
 var app = express();
+
+const MongoClient = require("mongodb").MongoClient;
+
+app.use(cors());
+
+MongoClient.connect("mongodb://127.0.0.1:27017", {
+    useUnifiedTopology: true
+})
+.then(client => {
+    console.log("Uppkopplade mot databesen");
+
+    const db = client.db("userstest");
+    app.locals.db = db; 
+})
+.catch(err => console.log("err", err))
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -16,27 +34,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
-app.get('/test/:testId', function(req, res){
-    let showTest = req.params.testId
-    res.send("Test routern och info om test nr" + showTest)
-});
-
-app.get("/form", function(req, res){
-
-    let printForm = `<h1>Hej!</h1>
-                    <form>Namn<br>
-                    <input type="text" name="userName">
-                    <button>Skicka</button></form>`
-    
-    res.send(printForm);
-});
-
-app.post("/saveuser", function(req, res){
-
-    res.send("Hej på dig" + req.body.userName);
-
-});
+app.use('/products', productsRouter);
+app.use('/api', apiRouter);
 
 
 module.exports = app;
