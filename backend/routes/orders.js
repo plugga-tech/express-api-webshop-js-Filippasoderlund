@@ -2,12 +2,14 @@ var express = require('express');
 var router = express.Router();
 
 const orderSchema = require('../models/orderModel.js');
-const productSchema = require('../models/productModel.js');
+// const productSchema = require('../models/productModel.js');
 
 /* GET home page. */
 router.post('/add', async (req, res, next) => {
-
+  const order = await orderSchema.create(req.body)
+    res.json(order)
 });
+
 
 router.get('/all', async(req, res, next) => {
   const orders = await orderSchema.find();
