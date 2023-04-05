@@ -2,23 +2,23 @@
 // API ENDPOINTS USER
 //
 
-// HÄMTA ALLA USERS // SKICKA INTE MED LÖSENORD // BARA ID, NAMN + EMAIL PÅ ALLA USERS
+// OK HÄMTA ALLA USERS // SKICKA INTE MED LÖSENORD // BARA ID, NAMN + EMAIL PÅ ALLA USERS
 # @name getUsers
 GET http://localhost:3000/api/users
 
 ###
 
-// HÄMTA SPECIFIK USER // SKICKA HELA OBJEKTET
+// OK HÄMTA SPECIFIK USER // SKICKA HELA OBJEKTET
 POST http://localhost:3000/api/users/
 Content-Type: application/json
 
 {
-  "id": "// EN USER ID"
+  "id": "test"
 }
 
 ###
 
-// SKAPA USER
+// OK SKAPA USER
 POST http://localhost:3000/api/users/add
 Content-Type: application/json
 
@@ -30,13 +30,13 @@ Content-Type: application/json
 
 ###
 
-// LOGGA IN USER
+// OK LOGGA IN USER
 POST http://localhost:3000/api/users/login
 Content-Type: application/json
 
 {
-  "email": "// EN USER EMAIL",
-  "password": "// EN USER EMAIL"
+  "email": "test@mail.com",
+  "password": "test"
 }
 
 ###
