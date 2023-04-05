@@ -45,7 +45,7 @@ Content-Type: application/json
 // API ENDPOINTS PRODUKTER
 //
 
-// HÄMTA ALLA PRODUKTER
+// OK HÄMTA ALLA PRODUKTER
 
 # @name getProducts
 GET http://localhost:3000/api/products
@@ -53,11 +53,11 @@ GET http://localhost:3000/api/products
 ###
 
 // HÄMTA SPECIFIK PRODUKT
-GET http://localhost:3000/api/products/ // ID PÅ PRODUKT
+GET http://localhost:3000/api/products/642d4b0978000598469f8414
 
 ###
 
-// SKAPA PRODUKT
+// OK SKAPA PRODUKT
 POST http://localhost:3000/api/products/add
 Content-Type: application/json
 
