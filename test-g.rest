@@ -52,7 +52,7 @@ GET http://localhost:3000/api/products
 
 ###
 
-// HÄMTA SPECIFIK PRODUKT
+// OK HÄMTA SPECIFIK PRODUKT
 GET http://localhost:3000/api/products/642d4b0978000598469f8414
 
 ###
@@ -74,12 +74,12 @@ Content-Type: application/json
 // API ENDPOINTS ORDERS
 //
 
-// SKAPA ORDER FÖR EN SPECIFIK USER // PRODUCTS ÄR EN ARRAY MOTSVARANDE INNEHÅLLET I KUNDVAGN
+// OK SKAPA ORDER FÖR EN SPECIFIK USER // PRODUCTS ÄR EN ARRAY MOTSVARANDE INNEHÅLLET I KUNDVAGN
 POST http://localhost:3000/api/orders/add
 Content-Type: application/json
 
 {
-  "user": "{{getUsers.response.body.$[0].id}}",
+  "user": "642d309913cabeee1457ab5f",
       "products": [
     {
       "productId": "642d5b72b81892d27b6ac731",
@@ -95,7 +95,7 @@ Content-Type: application/json
 ###
 
 
-// HÄMTA ALLA ORDERS
+// OK HÄMTA ALLA ORDERS
 GET http://localhost:3000/api/orders/all/
 
 ###
